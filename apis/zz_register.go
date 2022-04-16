@@ -22,14 +22,18 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/crossplane-contrib/provider-jet-vault/apis/generic/v1alpha1"
-	v1alpha1apis "github.com/crossplane-contrib/provider-jet-vault/apis/v1alpha1"
+	v1alpha1 "github.com/crossplane-contrib/provider-jet-aci/apis/application/v1alpha1"
+	v1alpha1network "github.com/crossplane-contrib/provider-jet-aci/apis/network/v1alpha1"
+	v1alpha1root "github.com/crossplane-contrib/provider-jet-aci/apis/root/v1alpha1"
+	v1alpha1apis "github.com/crossplane-contrib/provider-jet-aci/apis/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1network.SchemeBuilder.AddToScheme,
+		v1alpha1root.SchemeBuilder.AddToScheme,
 		v1alpha1apis.SchemeBuilder.AddToScheme,
 	)
 }

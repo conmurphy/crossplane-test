@@ -1,7 +1,7 @@
 apiVersion: meta.pkg.crossplane.io/v1alpha1
 kind: Provider
 metadata:
-  name: provider-jet-vault
+  name: provider-jet-aci
 spec:
   controller:
-    image: crossplane/provider-jet-vault-controller:VERSION
+    image: conmurphy/provider-jet-aci-controller:0.0.2

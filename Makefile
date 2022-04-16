@@ -1,15 +1,15 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := provider-jet-vault
+PROJECT_NAME := provider-jet-aci
 PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.6
 
-export TERRAFORM_PROVIDER_SOURCE := hashicorp/vault
+export TERRAFORM_PROVIDER_SOURCE := hashicorp/aci
 export TERRAFORM_PROVIDER_VERSION := 3.3.1
-export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-vault
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-vault/3.3.1
+export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-aci
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-aci/3.3.1
 
 PLATFORMS ?= linux_amd64 linux_arm64
 
@@ -51,7 +51,7 @@ GO111MODULE = on
 # Setup Images
 
 REGISTRY_ORGS ?= docker.io/crossplane
-IMAGES = provider-jet-vault provider-jet-vault-controller
+IMAGES = provider-jet-aci provider-jet-aci-controller
 -include build/makelib/imagelight.mk
 
 # ====================================================================================

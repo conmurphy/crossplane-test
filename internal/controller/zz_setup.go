@@ -21,16 +21,42 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/controller"
 
-	secret "github.com/crossplane-contrib/provider-jet-vault/internal/controller/generic/secret"
-	providerconfig "github.com/crossplane-contrib/provider-jet-vault/internal/controller/providerconfig"
+	applicationprofile "github.com/crossplane-contrib/provider-jet-aci/internal/controller/application/applicationprofile"
+	epg "github.com/crossplane-contrib/provider-jet-aci/internal/controller/application/epg"
+	esg "github.com/crossplane-contrib/provider-jet-aci/internal/controller/application/esg"
+	esgepgselector "github.com/crossplane-contrib/provider-jet-aci/internal/controller/application/esgepgselector"
+	esgselector "github.com/crossplane-contrib/provider-jet-aci/internal/controller/application/esgselector"
+	esgtagselector "github.com/crossplane-contrib/provider-jet-aci/internal/controller/application/esgtagselector"
+	bridgedomain "github.com/crossplane-contrib/provider-jet-aci/internal/controller/network/bridgedomain"
+	l3externalnetworkinstanceprofile "github.com/crossplane-contrib/provider-jet-aci/internal/controller/network/l3externalnetworkinstanceprofile"
+	l3externalsubnet "github.com/crossplane-contrib/provider-jet-aci/internal/controller/network/l3externalsubnet"
+	l3logicalinterfaceprofile "github.com/crossplane-contrib/provider-jet-aci/internal/controller/network/l3logicalinterfaceprofile"
+	l3logicalnodeprofile "github.com/crossplane-contrib/provider-jet-aci/internal/controller/network/l3logicalnodeprofile"
+	l3outside "github.com/crossplane-contrib/provider-jet-aci/internal/controller/network/l3outside"
+	vrf "github.com/crossplane-contrib/provider-jet-aci/internal/controller/network/vrf"
+	providerconfig "github.com/crossplane-contrib/provider-jet-aci/internal/controller/providerconfig"
+	tenant "github.com/crossplane-contrib/provider-jet-aci/internal/controller/root/tenant"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		secret.Setup,
+		applicationprofile.Setup,
+		epg.Setup,
+		esg.Setup,
+		esgepgselector.Setup,
+		esgselector.Setup,
+		esgtagselector.Setup,
+		bridgedomain.Setup,
+		l3externalnetworkinstanceprofile.Setup,
+		l3externalsubnet.Setup,
+		l3logicalinterfaceprofile.Setup,
+		l3logicalnodeprofile.Setup,
+		l3outside.Setup,
+		vrf.Setup,
 		providerconfig.Setup,
+		tenant.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err

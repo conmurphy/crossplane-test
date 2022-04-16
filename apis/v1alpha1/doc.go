@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Package v1alpha1 contains the core resources of the vault jet provider.
+// Package v1alpha1 contains the core resources of the aci jet provider.
 // +kubebuilder:object:generate=true
-// +groupName=vault.jet.crossplane.io
+// +groupName=aci.jet.crossplane.io
 // +versionName=v1alpha1
 package v1alpha1
