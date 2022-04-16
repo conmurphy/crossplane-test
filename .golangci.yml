@@ -54,9 +54,9 @@ linters-settings:
 
   goconst:
     # minimal length of string constant, 3 by default
-    min-len: 3
+    min-len: 30
     # minimal occurrences count to trigger, 3 by default
-    min-occurrences: 5
+    min-occurrences: 50
 
   lll:
     # tab width in spaces. Default to 1.
